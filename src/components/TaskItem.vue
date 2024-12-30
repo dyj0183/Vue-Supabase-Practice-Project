@@ -34,17 +34,3 @@ defineProps<{
   task: Task;
 }>();
 </script>
-
-<style scoped>
-.task-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: #888;
-}
-</style> 
