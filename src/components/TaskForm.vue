@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const newTask = ref('');
+const emit = defineEmits(['add-task']);
+
+const addTask = () => {
+  if (newTask.value.trim()) {
+    emit('add-task', newTask.value);
+    newTask.value = '';
+  }
+};
+</script>
+
 <template>
   <form @submit.prevent="addTask" class="flex gap-4 mb-6">
     <input
@@ -15,17 +29,3 @@
     </button>
   </form>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const newTask = ref('');
-const emit = defineEmits(['add-task']);
-
-const addTask = () => {
-  if (newTask.value.trim()) {
-    emit('add-task', newTask.value);
-    newTask.value = '';
-  }
-};
-</script>

@@ -1,18 +1,3 @@
-<template>
-  <div class="bg-gray-50 p-6 rounded-xl">
-    <h2 class="text-xl font-semibold mb-4 text-gray-700">My Tasks</h2>
-    <div class="space-y-2">
-      <TaskItem
-        v-for="task in tasks"
-        :key="task.id"
-        :task="task"
-        @toggle-complete="toggleComplete"
-        @delete-task="deleteTask"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 import TaskItem from './TaskItem.vue';
@@ -32,4 +17,19 @@ const toggleComplete = (taskId: number) => {
 const deleteTask = (taskId: number) => {
   tasks.value = tasks.value.filter(t => t.id !== taskId);
 };
-</script> 
+</script>
+ 
+<template>
+  <div class="bg-gray-50 p-6 rounded-xl">
+    <h2 class="text-xl font-semibold mb-4 text-gray-700">My Tasks</h2>
+    <div class="space-y-2">
+      <TaskItem
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+        @toggle-complete="toggleComplete"
+        @delete-task="deleteTask"
+      />
+    </div>
+  </div>
+</template>

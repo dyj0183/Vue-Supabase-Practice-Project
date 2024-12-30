@@ -1,3 +1,15 @@
+<script setup lang="ts">
+interface Task {
+id: number;
+title: string;
+completed: boolean;
+}
+
+defineProps<{
+task: Task;
+}>();
+</script>
+
 <template>
   <div class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm mb-2 hover:bg-gray-50">
     <input
@@ -22,15 +34,3 @@
     </button>
   </div>
 </template>
-
-<script setup lang="ts">
-interface Task {
-  id: number;
-  title: string;
-  completed: boolean;
-}
-
-defineProps<{
-  task: Task;
-}>();
-</script>
