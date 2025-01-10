@@ -2,12 +2,18 @@
     "compilerOptions": {
       "module": "ESNext",
       "target": "ESNext",
-      "moduleResolution": "Node",
+      "moduleResolution": "Bundler",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      },
       "strict": true,
       "jsx": "preserve",
       "esModuleInterop": true,
       "skipLibCheck": true,
-      "types": ["vite/client"] // Ensure Vite types are included
-    }
+      "types": ["vite/client"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+    // "references": [{ "path": "./tsconfig.node.json" }]
   }
   

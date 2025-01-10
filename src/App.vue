@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import TaskForm from './components/TaskForm.vue';
 import TaskList from './components/TaskList.vue';
+import { useTaskStore } from '@/stores/taskStore';
+
+const taskStore = useTaskStore();
 
 const addTask = (title: string) => {
-  // We'll implement this later with Supabase
-  console.log('New task:', title);
+  taskStore.addTask(title);
 };
 </script> 
 
