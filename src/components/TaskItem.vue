@@ -1,9 +1,5 @@
 <script setup lang="ts">
-interface Task {
-id: number;
-title: string;
-completed: boolean;
-}
+import type { Task } from '@/types/task';
 
 defineProps<{
 task: Task;
