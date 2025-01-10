@@ -17,12 +17,16 @@ export const useTaskStore = defineStore('tasks', () => {
   }
 
   async function addTask(title: string) {
-    const { error } = await supabase
-      .from('tasks')
-      .insert([{ title, completed: false }])
+    try {
+      const { error } = await supabase
+        .from('tasks')
+        .insert([{ title, completed: false }])
 
-    if (error) throw error
-    await fetchTasks()
+      if (error) throw error
+      await fetchTasks()
+    } catch (error: any) {
+      alert('Failed to add task: ' + error.message)
+    }
   }
 
   async function toggleTask(id: number, completed: boolean) {
